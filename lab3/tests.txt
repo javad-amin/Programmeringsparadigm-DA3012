@@ -1,0 +1,126 @@
+
+Q2 -------------------------------------------------------------
+mulString 2 "hej" == "hejhej" && mulString 0 "hej" == "" && mulString (-2) "hej" == "" && mulString 3 "" == ""
+
+Q4 -------------------------------------------------------------
+
+matrixToList Empty == [] && matrixToList m1 == [[1,2],[3,4]] && matrixToList m2 == [[42,1,-2],[3,1,2],[-9,3,4]] && matrixToList m3 == [[2.0,1.0,3.2,4.1],[3.2,9.9,5.323,56.4123],[1.4,15.323,0.0,0.0],[1.0,7.4993,0.0,1.0]] && matrixToList m4 == [[1,2,3,4]] && matrixToList m5 == [[1],[2],[3],[4]] && matrixToList m6 == [[1,2],[3,4],[5,6]]
+
+
+Q5 -------------------------------------------------------------
+listToMatrix [] == Empty && listToMatrix [[1,2],[3,4]] == Cons 1 [2] [3] (Cons 4 [] [] Empty) && listToMatrix [[42,1,-2],[3,1,2],[-9,3,4]] == Cons 42 [1,-2] [3,-9] (Cons 1 [2] [3] (Cons 4 [] [] Empty)) && listToMatrix [[1,2,3,4]] == Cons 1 [2,3,4] [] Empty && listToMatrix [[1],[2],[3],[4]] == Cons 1 [] [2,3,4] Empty && listToMatrix [[1,2],[3,4],[5,6]] == Cons 1 [2] [3,5] (Cons 4 [] [6] Empty)
+
+Q6 -------------------------------------------------------------
+
+mapMatrix (\x -> x ^ 2) m6 == Cons 1 [4] [9,25] (Cons 16 [] [36] Empty) && negMatrix m1 == Cons (-1) [-2] [-3] (Cons (-4) [] [] Empty) && negMatrix m2 == Cons (-42) [-1,2] [-3,9] (Cons (-1) [-2] [-3] (Cons (-4) [] [] Empty)) && negMatrix m3 == Cons (-2.0) [-1.0,-3.2,-4.1] [-3.2,-1.4,-1.0] (Cons (-9.9) [-5.323,-56.4123] [-15.323,-7.4993] (Cons (-0.0) [-0.0] [-0.0] (Cons (-1.0) [] [] Empty))) && scalarMul 0 m1 == Cons 0 [0] [0] (Cons 0 [] [] Empty) && scalarMul 2 m1 == Cons 2 [4] [6] (Cons 8 [] [] Empty) && scalarMul 3 m2 == Cons 126 [3,-6] [9,-27] (Cons 3 [6] [9] (Cons 12 [] [] Empty)) && scalarMul (-1.2) m3 == Cons (-2.4) [-1.2,-3.84,-4.919999999999999] [-3.84,-1.68,-1.2] (Cons (-11.88) [-6.3876,-67.69476] [-18.3876,-8.99916] (Cons (-0.0) [-0.0] [-0.0] (Cons (-1.2) [] [] Empty)))
+
+
+Q7 -------------------------------------------------------------
+
+addMatrix m1 m1 == Cons 2 [4] [6] (Cons 8 [] [] Empty) && addMatrix m2 m2 == Cons 84 [2,-4] [6,-18] (Cons 2 [4] [6] (Cons 8 [] [] Empty)) && addMatrix m5 m5 == Cons 2 [] [4,6,8] Empty && addMatrix m6 m6 == Cons 2 [4] [6,10] (Cons 8 [] [12] Empty) && subMatrix m2 m2 == Cons 0 [0,0] [0,0] (Cons 0 [0] [0] (Cons 0 [] [] Empty))
+
+Q8 -------------------------------------------------------------
+
+
+mulColRow [1,2] [3,4] == Cons 3 [4] [6] (Cons 8 [] [] Empty) && mulColRow [1..5] [6..10] == Cons 6 [7,8,9,10] [12,18,24,30] (Cons 14 [16,18,20] [21,28,35] (Cons 24 [27,30] [32,40] (Cons 36 [40] [45] (Cons 50 [] [] Empty))))
+
+Q9 -------------------------------------------------------------
+
+det m1 == -2 && det m2 == -150 && det (Cons (-2) [2,-3] [-1,2] (Cons 1 [3] [0] (Cons (-1) [] [] Empty))) == 18
+
+All tests 4 -------------------------------------------------------------
+
+matrixToList Empty == [] && matrixToList m1 == [[1,2],[3,4]] && matrixToList m2 == [[42,1,-2],[3,1,2],[-9,3,4]] && matrixToList m3 == [[2.0,1.0,3.2,4.1],[3.2,9.9,5.323,56.4123],[1.4,15.323,0.0,0.0],[1.0,7.4993,0.0,1.0]] && matrixToList m4 == [[1,2,3,4]] && matrixToList m5 == [[1],[2],[3],[4]] && matrixToList m6 == [[1,2],[3,4],[5,6]] && listToMatrix [] == Empty && listToMatrix [[1,2],[3,4]] == Cons 1 [2] [3] (Cons 4 [] [] Empty) && listToMatrix [[42,1,-2],[3,1,2],[-9,3,4]] == Cons 42 [1,-2] [3,-9] (Cons 1 [2] [3] (Cons 4 [] [] Empty)) && listToMatrix [[1,2,3,4]] == Cons 1 [2,3,4] [] Empty && listToMatrix [[1],[2],[3],[4]] == Cons 1 [] [2,3,4] Empty && listToMatrix [[1,2],[3,4],[5,6]] == Cons 1 [2] [3,5] (Cons 4 [] [6] Empty) && mapMatrix (\x -> x ^ 2) m6 == Cons 1 [4] [9,25] (Cons 16 [] [36] Empty) && negMatrix m1 == Cons (-1) [-2] [-3] (Cons (-4) [] [] Empty) && negMatrix m2 == Cons (-42) [-1,2] [-3,9] (Cons (-1) [-2] [-3] (Cons (-4) [] [] Empty)) && negMatrix m3 == Cons (-2.0) [-1.0,-3.2,-4.1] [-3.2,-1.4,-1.0] (Cons (-9.9) [-5.323,-56.4123] [-15.323,-7.4993] (Cons (-0.0) [-0.0] [-0.0] (Cons (-1.0) [] [] Empty))) && scalarMul 0 m1 == Cons 0 [0] [0] (Cons 0 [] [] Empty) && scalarMul 2 m1 == Cons 2 [4] [6] (Cons 8 [] [] Empty) && scalarMul 3 m2 == Cons 126 [3,-6] [9,-27] (Cons 3 [6] [9] (Cons 12 [] [] Empty)) && scalarMul (-1.2) m3 == Cons (-2.4) [-1.2,-3.84,-4.919999999999999] [-3.84,-1.68,-1.2] (Cons (-11.88) [-6.3876,-67.69476] [-18.3876,-8.99916] (Cons (-0.0) [-0.0] [-0.0] (Cons (-1.2) [] [] Empty))) && addMatrix m1 m1 == Cons 2 [4] [6] (Cons 8 [] [] Empty) && addMatrix m2 m2 == Cons 84 [2,-4] [6,-18] (Cons 2 [4] [6] (Cons 8 [] [] Empty)) && addMatrix m5 m5 == Cons 2 [] [4,6,8] Empty && addMatrix m6 m6 == Cons 2 [4] [6,10] (Cons 8 [] [12] Empty) && subMatrix m2 m2 == Cons 0 [0,0] [0,0] (Cons 0 [0] [0] (Cons 0 [] [] Empty)) && mulColRow [1,2] [3,4] == Cons 3 [4] [6] (Cons 8 [] [] Empty) && mulColRow [1..5] [6..10] == Cons 6 [7,8,9,10] [12,18,24,30] (Cons 14 [16,18,20] [21,28,35] (Cons 24 [27,30] [32,40] (Cons 36 [40] [45] (Cons 50 [] [] Empty)))) && det m1 == -2 && det m2 == -150 && det (Cons (-2) [2,-3] [-1,2] (Cons 1 [3] [0] (Cons (-1) [] [] Empty))) == 18
+
+Q10 -------------------------------------------------------------
+
+evalIntExpr (Const 4) [] == 4 && evalIntExpr (Var "x") [("x",4)] == 4 && evalIntExpr (Var "x") [("x",6)] == 6 && evalIntExpr (Add (Var "x") (Const (-3))) [("x",6)] == 3 && evalIntExpr (Mul (Mul (Var "y") (Var "y")) (Add (Var "x") (Const (-3)))) [("x",6),("y",10)] == 300
+
+
+Q11 -------------------------------------------------------------
+
+addToEnv ("x",3) [] == [("x",3)] && addToEnv ("x",7) [("y",-2)] == [("y",-2),("x",7)] && addToEnv ("x",7) [("y",-2),("x",3)] == [("y",-2),("x",7)] && addToEnv ("y",7) [("y",-2),("x",3)] == [("y",7),("x",3)]
+
+Q12 -------------------------------------------------------------
+
+run prog1 == [("x",1),("y",4),("z",17)]
+
+Q13 -------------------------------------------------------------
+
+run prog2 == [("x",0),("y",1),("z",2)]
+run prog3 == [("x",1),("y",5),("z",0),("w",0)]
+
+Q14 -------------------------------------------------------------
+
+run progfac == [("x",0),("y",120)]
+
+
+All tests 5 -------------------------------------------------------------
+
+evalIntExpr (Const 4) [] == 4 && evalIntExpr (Var "x") [("x",4)] == 4 && evalIntExpr (Var "x") [("x",6)] == 6 && evalIntExpr (Add (Var "x") (Const (-3))) [("x",6)] == 3 && evalIntExpr (Mul (Mul (Var "y") (Var "y")) (Add (Var "x") (Const (-3)))) [("x",6),("y",10)] == 300 && addToEnv ("x",3) [] == [("x",3)] && addToEnv ("x",7) [("y",-2)] == [("y",-2),("x",7)] && addToEnv ("x",7) [("y",-2),("x",3)] == [("y",-2),("x",7)] && addToEnv ("y",7) [("y",-2),("x",3)] == [("y",7),("x",3)] && run prog1 == [("x",1),("y",4),("z",17)] && run prog2 == [("x",0),("y",1),("z",2)] && run prog3 == [("x",1),("y",5),("z",0),("w",0)] && run progfac == [("x",0),("y",120)]
+
+
+
+
+
+Uppgift 4
+
+Mina tester Körs i ghci
+
+matrixToList Empty == []
+matrixToList m1 == [[1,2],[3,4]]
+matrixToList m2 == [[42,1,-2],[3,1,2],[-9,3,4]]
+matrixToList m3 == [[2.0,1.0,3.2,4.1],[3.2,9.9,5.323,56.4123],[1.4,15.323,0.0,0.0],[1.0,7.4993,0.0,1.0]]
+matrixToList m4 == [[1,2,3,4]]
+matrixToList m5 == [[1],[2],[3],[4]]
+matrixToList m6 == [[1,2],[3,4],[5,6]]
+
+listToMatrix [] == Empty
+listToMatrix [[1,2],[3,4]] == Cons 1 [2] [3] (Cons 4 [] [] Empty)
+listToMatrix [[42,1,-2],[3,1,2],[-9,3,4]] == Cons 42 [1,-2] [3,-9] (Cons 1 [2] [3] (Cons 4 [] [] Empty))
+listToMatrix [[1,2,3,4]] == Cons 1 [2,3,4] [] Empty
+listToMatrix [[1],[2],[3],[4]] == Cons 1 [] [2,3,4] Empty
+listToMatrix [[1,2],[3,4],[5,6]] == Cons 1 [2] [3,5] (Cons 4 [] [6] Empty)
+
+mapMatrix (\x -> x ^ 2) m6 == Cons 1 [4] [9,25] (Cons 16 [] [36] Empty)
+negMatrix m1 == Cons (-1) [-2] [-3] (Cons (-4) [] [] Empty)
+negMatrix m2 == Cons (-42) [-1,2] [-3,9] (Cons (-1) [-2] [-3] (Cons (-4) [] [] Empty))
+negMatrix m3 == Cons (-2.0) [-1.0,-3.2,-4.1] [-3.2,-1.4,-1.0] (Cons (-9.9) [-5.323,-56.4123] [-15.323,-7.4993] (Cons (-0.0) [-0.0] [-0.0] (Cons (-1.0) [] [] Empty)))
+scalarMul 0 m1 == Cons 0 [0] [0] (Cons 0 [] [] Empty)
+scalarMul 2 m1 == Cons 2 [4] [6] (Cons 8 [] [] Empty)
+scalarMul 3 m2 == Cons 126 [3,-6] [9,-27] (Cons 3 [6] [9] (Cons 12 [] [] Empty))
+scalarMul (-1.2) m3 == Cons (-2.4) [-1.2,-3.84,-4.919999999999999] [-3.84,-1.68,-1.2] (Cons (-11.88) [-6.3876,-67.69476] [-18.3876,-8.99916] (Cons (-0.0) [-0.0] [-0.0] (Cons (-1.2) [] [] Empty)))
+
+addMatrix m1 m1 == Cons 2 [4] [6] (Cons 8 [] [] Empty)
+addMatrix m2 m2 == Cons 84 [2,-4] [6,-18] (Cons 2 [4] [6] (Cons 8 [] [] Empty))
+addMatrix m5 m5 == Cons 2 [] [4,6,8] Empty
+addMatrix m6 m6 == Cons 2 [4] [6,10] (Cons 8 [] [12] Empty)
+subMatrix m2 m2 == Cons 0 [0,0] [0,0] (Cons 0 [0] [0] (Cons 0 [] [] Empty))
+
+mulColRow [1,2] [3,4] == Cons 3 [4] [6] (Cons 8 [] [] Empty)
+mulColRow [1..5] [6..10] == Cons 6 [7,8,9,10] [12,18,24,30] (Cons 14 [16,18,20] [21,28,35] (Cons 24 [27,30] [32,40] (Cons 36 [40] [45] (Cons 50 [] [] Empty))))
+
+det m1 == -2
+det m2 == -150
+det (Cons (-2) [2,-3] [-1,2] (Cons 1 [3] [0] (Cons (-1) [] [] Empty))) == 18
+
+
+Uppgift 5
+evalIntExpr (Const 4) [] == 4
+evalIntExpr (Var "x") [("x",4)] == 4
+evalIntExpr (Var "x") [("x",6)] == 6
+evalIntExpr (Add (Var "x") (Const (-3))) [("x",6)] == 3
+evalIntExpr (Mul (Mul (Var "y") (Var "y")) (Add (Var "x") (Const (-3)))) [("x",6),("y",10)] == 300
+
+
+addToEnv ("x",3) [] == [("x",3)]
+addToEnv ("x",7) [("y",-2)] == [("y",-2),("x",7)]
+addToEnv ("x",7) [("y",-2),("x",3)] == [("y",-2),("x",7)]
+addToEnv ("y",7) [("y",-2),("x",3)] == [("y",7),("x",3)]
+
+run prog1 == [("x",1),("y",4),("z",17)]
+
+run prog2 == [("x",0),("y",1),("z",2)]
+run prog3 == [("x",1),("y",5),("z",0),("w",0)]
+
+run progfac == [("x",0),("y",120)]
